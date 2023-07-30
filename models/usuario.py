@@ -7,7 +7,7 @@ class Usuario:
         self.historial_ruta = historial_rutas
 
     def to_json(self):
-        return{"id": self.ide, "nombre": self.nombre, "apellido": self.apellido, "historial_rutas": self.historial_rutas}
+        return{"id": self.id, "nombre": self.nombre, "apellido": self.apellido, "historial_rutas": self.historial_rutas}
 
     @classmethod
     def from_json(cls, json_data):
