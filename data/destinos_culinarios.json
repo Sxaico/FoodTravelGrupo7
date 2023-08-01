@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "nombre": "Lo de Juana Manuela",
+        "tipo_cocina": "tradicional",
+        "ingredientes": ["comun"],
+        "precio_minimo": 100,
+        "precio_maximo": 1000,
+        "popularidad": 8,
+        "disponibilidad": 1,
+        "id_ubicacion": 1,
+        "imagen": "ubicacion/imagen"
+    },
+    {
+        "id": 2,
+        "nombre": "resto maam",
+        "tipo_cocina": "tradicional",
+        "ingredientes": ["comun"],
+        "precio_minimo": 800,
+        "precio_maximo": 1500,
+        "popularidad": 7,
+        "disponibilidad": 1,
+        "id_ubicacion": 2,
+        "imagen": "ubicacion/imagen"
+    },
+    {
+        "id": 3,
+        "nombre": "Pulperia 1910",
+        "tipo_cocina": "tradicional",
+        "ingredientes": ["comun"],
+        "precio_minimo": 100,
+        "precio_maximo": 1000,
+        "popularidad": 8,
+        "disponibilidad": 1,
+        "id_ubicacion": 3,
+        "imagen": "ubicacion/imagen"
+    },
+    {
+        "id": 4,
+        "nombre": "Lo de Juana Manuela",
+        "tipo_cocina": "tradicional",
+        "ingredientes": ["comun"],
+        "precio_minimo": 100,
+        "precio_maximo": 1000,
+        "popularidad": 8,
+        "disponibilidad": 1,
+        "id_ubicacion": 4,
+        "imagen": "ubicacion/imagen"
+    }
+]

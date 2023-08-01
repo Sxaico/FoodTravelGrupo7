@@ -1,6 +1,6 @@
 import json
 class Ubicacion:
-    def __init__(self, id:int, direccion: str, coordenadas: List[int]):
+    def __init__(self, id:int, direccion: str, coordenadas: list[int]):
         self.id = id
         self.direccion = direccion
         self.coordenadas = coordenadas

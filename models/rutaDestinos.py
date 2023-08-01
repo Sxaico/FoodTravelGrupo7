@@ -1,7 +1,7 @@
 import json
 
 class Ruta_destino:
-    def __init__(self, id: int, nombre: str, destinos: List[str]):
+    def __init__(self, id: int, nombre: str, destinos: list[str]):
         self.id = id
         self.nombre = nombre
         self.destinos = destinos
