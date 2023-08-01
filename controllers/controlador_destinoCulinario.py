@@ -1,7 +1,7 @@
 class ControladorDestinoCulinario:
     def __init__(self, app, modelo_destino_culinario):
         self.app = app
-        self.modelo_juego = modelo_destino_culinario
+        self.modelo_destino_culinario = modelo_destino_culinario
 
     def obtener_destino_culinario(self):
         return self.modelo_destino_culinario

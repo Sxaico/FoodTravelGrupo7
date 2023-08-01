@@ -14,8 +14,8 @@ class VistaInfo(tk.Frame):
         self.destino_label.config(justify=tk.LEFT)
         self.boton_regresar = tk.Button(
             self,
-            text="Regresar a la lista de juegos",
-            command=self.controlador.regresar_juegos,
+            text="Regresar a la lista de destinos",
+            command=self.controlador.regresar_destinos_culinarios,
         )
         self.boton_regresar.pack(pady=10)
 
