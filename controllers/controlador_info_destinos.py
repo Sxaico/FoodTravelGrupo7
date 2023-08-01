@@ -3,4 +3,4 @@ class ControladorInfo:
         self.app = app
 
     def regresar_destinos_culinarios(self):
-        self.app.cambiar_frame(self.app.vista_destinos_culinarios)
+        self.app.cambiar_frame(self.app.vista_destinoCulinario)

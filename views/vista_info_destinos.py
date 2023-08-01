@@ -19,9 +19,9 @@ class VistaInfo(tk.Frame):
         )
         self.boton_regresar.pack(pady=10)
 
-    def mostrar_info_juego(self, destino):
+    def mostrar_info_destino_culinario(self, destino):
         """
-        Muestra la información del juego recibido como parámetro.
+        Muestra la información del destino recibido como parámetro.
         """
         info = f"Destino: {destino.nombre}\nTipo de cocina: {destino.tipo_cocina}\nPrecio minimo: {destino.precio_minimo}\nPrecio maximo: {destino.precio_maximo}\nPopularidad: {destino.popularidad}"
         self.destino_label["text"] = info
