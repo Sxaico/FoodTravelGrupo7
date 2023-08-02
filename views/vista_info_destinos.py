@@ -4,7 +4,7 @@ import tkinter as tk
 class VistaInfo(tk.Frame):
     def __init__(self, master=None, controlador=None):
         """
-        Crea la vista de la información de un juego.
+        Crea la vista de la información de un destino.
         """
         super().__init__(master)
         self.master = master
