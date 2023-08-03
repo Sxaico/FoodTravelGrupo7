@@ -22,17 +22,17 @@ class VistaDestinosCulinarios(tk.Frame):
         self.actualizar_destinos_culinarios()
 
         self.boton_inicio = tk.Button(
-                self, text='Ir a inicio', command=self.controlador.regresar_inicio
+                self, text='Ir a inicio', command = self.controlador.regresar_inicio
                 )
         self.boton_inicio.pack(pady=10)
 
     def actualizar_destinos_culinarios(self):
-        destinos_culinarios = self.controlador.obtener_destino_culinario()
+        destinos_culinarios = self.controlador.obtener_destinos_culinarios()
         self.listbox.delete(0, tk.END)
         for destino_culinario in destinos_culinarios:
             self.listbox.insert(tk.END, destino_culinario.nombre)
-
-    def obtener_destino_culinario(self):
+            
+    def obtener_destinos_culinarios(self):
         indice = self.listbox.curselection()
         if indice:
             return indice[0]

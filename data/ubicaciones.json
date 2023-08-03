@@ -1,21 +1,21 @@
 [
     {
-        "id": 1
-        "direccion": "Galería El Palacio, Bartolomé Mitre 37, A4400 Salta"
+        "id": 1,
+        "direccion": "Galería El Palacio, Bartolomé Mitre 37, A4400 Salta", 
         "coordenadas": [-24.789330950167933, -65.41122671238409]
     },
     {
-        "id": 2
-        "direccion": "Bartolomé Mitre 77, A4400 Salta"
+        "id": 2,
+        "direccion": "Bartolomé Mitre 77, A4400 Salta",
         "coordenadas": [-24.788960809777674, -65.41091021177324]
     },
     {
-        "id": 3
-        "direccion": "Caseros 513, A4400 Salta"
+        "id": 3,
+        "direccion": "Caseros 513, A4400 Salta",
         "coordenadas": [-24.789866650875748, -65.41000362515577]
     {
-        "id": 4
-        "direccion": "España 456, A4400 Salta"
+        "id": 4,
+        "direccion": "España 456, A4400 Salta",
         "coordenadas": [-24.788495722329984, -65.40904138248463]
     }
 ]
