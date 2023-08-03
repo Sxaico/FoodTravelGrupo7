@@ -11,9 +11,7 @@ class Ubicacion:
         return{'id':self.id, 'direccion': self.direccion, 'coordenadas': self.coordenadas}
 
     @classmethod
-    def from_json(cls, json_data):
-        data = json.loads(json_data)
-        return cls(data['id'], data['direccion'], data['coordenadas'])
-
-
-
+    def cargar_de_json(cls, archivo):
+        with open(archivo, "r") as f:
+            data = json.load(f)
+        return [cls(**ubicacion) for ubicacion in data]

@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkintermapview import TkinterMapView
 # import customtkinter as ctk
 from models.usuario import Usuario
 from models.review import Review
@@ -9,9 +10,11 @@ from models.ubicacion import Ubicacion
 from views.vista_inicio import VistaInicio
 from views.vista_destinoCulinario import VistaDestinosCulinarios
 from views.vista_info_destinos import VistaInfo
+from views.vista_mapa import VistaPrincipalMapa
 from controllers.controlador_inicio import ControladorInicio
 from controllers.controlador_destinoCulinario import ControladorDestinoCulinario
 from controllers.controlador_info_destinos import ControladorInfo
+from controllers.controlador_mapa import ControladorMapa
 
 
 class MyApp(tk.Tk):
@@ -30,11 +33,14 @@ class MyApp(tk.Tk):
         controlador_inicio = ControladorInicio(self)
         controlador_destinoCulinario = ControladorDestinoCulinario(self, destinos)
         controlador_info_destinos = ControladorInfo(self)
-#        controlador_usuario = Controladio
+        controlador_mapa = ControladorMapa(self)
+
         self.vista_inicio = VistaInicio(self, controlador_inicio)
         self.vista_destinoCulinario = VistaDestinosCulinarios(self, controlador_destinoCulinario)
-        self.vista_info_destinos = VistaInfo(self, controlador_info_destinos)
+        self.vista_info_destinos = VistaPrincipalMapa(self, controlador_mapa)
+        self.vista_mapa = VistaInfo(self, controlador_info_destinos)
 
+        self.ajustar_frame(self.vista_mapa)
         self.ajustar_frame(self.vista_inicio)
         self.ajustar_frame(self.vista_destinoCulinario)
         self.ajustar_frame(self.vista_info_destinos)

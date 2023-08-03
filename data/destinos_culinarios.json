@@ -9,7 +9,7 @@
         "popularidad": 8,
         "disponibilidad": 1,
         "id_ubicacion": 1,
-        "imagen": "ubicacion/imagen"
+        "imagen": "Lo_de_Juana_Manuela.jpg"
     },
     {
         "id": 2,
@@ -21,7 +21,7 @@
         "popularidad": 7,
         "disponibilidad": 1,
         "id_ubicacion": 2,
-        "imagen": "ubicacion/imagen"
+        "imagen": "resto_maam.jpg"
     },
     {
         "id": 3,
@@ -33,11 +33,11 @@
         "popularidad": 8,
         "disponibilidad": 1,
         "id_ubicacion": 3,
-        "imagen": "ubicacion/imagen"
+        "imagen": "Pulperia_1910.jpg"
     },
     {
         "id": 4,
-        "nombre": "Lo de Juana Manuela",
+        "nombre": "Terraza_grill",
         "tipo_cocina": "tradicional",
         "ingredientes": ["comun"],
         "precio_minimo": 100,
@@ -45,6 +45,6 @@
         "popularidad": 8,
         "disponibilidad": 1,
         "id_ubicacion": 4,
-        "imagen": "ubicacion/imagen"
+        "imagen": "Terraza_grill.jpg"
     }
 ]
