@@ -31,9 +31,9 @@ class ControladorMapa:
             print(f'{ubicacion.id}')
             '''
         for ubicacion, destino in zip(self.ubicaciones, self.destino):
-            print(f'{ubicacion.id} {destino.id}')
-            imagen = self.imagenes[ubicacion.id]
-            marcador = self.vista.agregar_marcador_mapa(ubicacion.coordenadas[0] , ubicacion.coordenadas[1], destino.nombre, imagen)
+            print(f'{ubicacion.id -1 }')
+            imagen = self.imagenes[ubicacion.id - 1]
+            marcador = self.vista.agregar_marcador_mapa(ubicacion.coordenadas[0], ubicacion.coordenadas[1], destino.nombre, imagen)
             marcador.hide_image(True)
             self.marcadores.append(marcador)
 
@@ -61,6 +61,7 @@ class ControladorMapa:
             marcador.hide_image(False)
         else:
             marcador.hide_image(True)
-        print('Ubicación seleccioada: ',marcador.text)
+        print('Ubicación seleccioada: ', marcador.text)
 
-
+    def regresar_inicio(self):
+        self.app.cambiar_frame(self.app.vista_inicio)

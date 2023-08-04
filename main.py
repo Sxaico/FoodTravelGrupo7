@@ -37,8 +37,8 @@ class MyApp(tk.Tk):
 
         self.vista_inicio = VistaInicio(self, controlador_inicio)
         self.vista_destinoCulinario = VistaDestinosCulinarios(self, controlador_destinoCulinario)
-        self.vista_info_destinos = VistaPrincipalMapa(self, controlador_mapa)
-        self.vista_mapa = VistaInfo(self, controlador_info_destinos)
+        self.vista_info_destinos = VistaInfo(self, controlador_info_destinos)
+        self.vista_mapa = VistaPrincipalMapa(self, controlador_mapa)
 
         self.ajustar_frame(self.vista_mapa)
         self.ajustar_frame(self.vista_inicio)

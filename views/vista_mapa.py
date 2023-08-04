@@ -4,7 +4,7 @@ from tkintermapview import TkinterMapView
 from PIL import Image, ImageTk
 
 
-class VistaPrincipalMapa(tk.Frame):
+class VistaPrincipalMapa:
     def __init__(self, root, seleccionar_destino_callback=None, seleccionar_ubicacion_callback=None):
         self.root = root
         self.seleccionar_destino_callback = seleccionar_destino_callback
@@ -19,6 +19,14 @@ class VistaPrincipalMapa(tk.Frame):
         self.mapa.set_zoom(16)
         self.mapa.pack(side='right')
 
+        '''
+        self.boton_regresar = tk.Button(
+                self,
+                text='Volver al inicio',
+                command=self.controlador.regresar_inicio
+                )
+        self.boton_regresar.pack(pady=10)
+        '''
         # Listbox para los destinos culinarios
         self.lista_destinos = tk.Listbox(self.frame_destinos)
         self.lista_destinos.bind('<<ListboxSelect>>', seleccionar_destino_callback)
