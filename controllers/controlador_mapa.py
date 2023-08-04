@@ -26,9 +26,15 @@ class ControladorMapa:
         self.imagenes.append(imagen)
 
     def cargar_marcadores(self):
+        '''
+        for ubicacion in self.ubicaciones:
+            print(f'{ubicacion.id}')
+            '''
         for ubicacion, destino in zip(self.ubicaciones, self.destino):
-            imagen = self.imagenes[ubicacion.id-1]
+            print(f'{ubicacion.id} {destino.id}')
+            imagen = self.imagenes[ubicacion.id]
             marcador = self.vista.agregar_marcador_mapa(ubicacion.coordenadas[0] , ubicacion.coordenadas[1], destino.nombre, imagen)
+            marcador.hide_image(True)
             self.marcadores.append(marcador)
 
     def seleccionar_destino(self, event):
