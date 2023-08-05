@@ -17,6 +17,7 @@ from controllers.controlador_info_destinos import ControladorInfo
 from controllers.controlador_mapa import ControladorMapa
 
 
+
 class MyApp(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
