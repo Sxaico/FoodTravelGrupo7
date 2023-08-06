@@ -4,3 +4,6 @@ class ControladorInicio:
 
     def mostrar_destinoCulinario(self):
         self.app.cambiar_frame(self.app.vista_destinoCulinario)
+
+    def mostrar_mapa(self):
+        self.app.cambiar_frame(self.app.vista_mapa)

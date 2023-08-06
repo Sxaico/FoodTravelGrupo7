@@ -7,9 +7,6 @@ class Ubicacion:
         self.direccion = direccion
         self.coordenadas = coordenadas
 
-    def to_json(self):
-        return{'id':self.id, 'direccion': self.direccion, 'coordenadas': self.coordenadas}
-
     @classmethod
     def cargar_de_json(cls, archivo):
         with open(archivo, "r") as f:

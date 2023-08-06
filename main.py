@@ -24,7 +24,7 @@ class MyApp(tk.Tk):
 
         self.title('TravelFoodG7')
         self.geometry('500x500')
-        self.resizable(False, False)
+        #self.resizable(False, False)
         self.inicializar()
         self.cambiar_frame(self.vista_inicio)
 
@@ -41,10 +41,10 @@ class MyApp(tk.Tk):
         self.vista_info_destinos = VistaInfo(self, controlador_info_destinos)
         self.vista_mapa = VistaPrincipalMapa(self, controlador_mapa)
 
-        self.ajustar_frame(self.vista_mapa)
         self.ajustar_frame(self.vista_inicio)
         self.ajustar_frame(self.vista_destinoCulinario)
         self.ajustar_frame(self.vista_info_destinos)
+        self.ajustar_frame(self.vista_mapa)
 
     def ajustar_frame(self, frame):
         frame.grid(row=0, column=0, sticky="nsew")

@@ -24,4 +24,4 @@ class DestinoCulinario:
 '''
     def to_json(self):
         return{"nombre": self.nombre, "tipo_cocina": self.tipo_cocina, "ingredientes": self.ingredientes, "precio_minimo": self.precio_minimo, "precio_maximo": self.precio_maximo,"popularidad": self.popularidad,"disponibilidad": self.disponibilidad,"id_ubicacion": self.id_ubicacion,"imagen": self.imagen}
-'''
+''' 
