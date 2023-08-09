@@ -14,12 +14,19 @@ class DestinoCulinario:
         self.id_ubicacion = id_ubicacion
         self.imagen = imagen
 
-    @classmethod
-    def cargar_de_json(cls, archivo):
-        with open(archivo, "r") as f:
-            data = json.load(f)
-        return [cls(**destino_culinario) for destino_culinario in data]
+    def a_json(self):
+        return json.dumps(self.__dict__)
 
+    @classmethod
+    def de_json(cls, datos_json):
+        datos = json.loads(datos_json)
+        return cls(**datos)
+
+    @staticmethod
+    def cargar_de_json(archivo_json):
+        with open(archivo_json, "r") as archivo:
+            datos = json.load(archivo)
+        return [DestinoCulinario.de_json(json.dumps(dato)) for dato in datos]
 
 '''
     def to_json(self):
