@@ -17,14 +17,15 @@ from controllers.controlador_destinoCulinario import ControladorDestinoCulinario
 from controllers.controlador_info_destinos import ControladorInfo
 from controllers.controlador_mapa import ControladorMapa
 from controllers.controlador_calificacion import ControladorCalificacion
-
+from views.vista_reviews import VistaReview
+from controllers.controlador_reviews import ControladorReview
 
 
 class MyApp(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
         self.title('TravelFoodG7')
-        self.geometry('1000x1000')
+        self.geometry('500x500')
         self.resizable(False, False)
         self.inicializar()
         self.cambiar_frame(self.vista_inicio)
@@ -37,18 +38,21 @@ class MyApp(tk.Tk):
         controlador_info_destinos = ControladorInfo(self)
         controlador_mapa = ControladorMapa(self)
         controlador_calificacion = ControladorCalificacion(self)
+        controlador_reviews = ControladorReview(self)
 
         self.vista_inicio = VistaInicio(self, controlador_inicio)
         self.vista_destinoCulinario = VistaDestinosCulinarios(self, controlador_destinoCulinario)
         self.vista_info_destinos = VistaInfo(self, controlador_info_destinos)
         self.vista_mapa = VistaPrincipalMapa(self, controlador_mapa)
         self.vista_calificacion = VistaCalificacion(self,controlador_calificacion)
+        self.vista_review = VistaReview(self, controlador_reviews)
 
         self.ajustar_frame(self.vista_inicio)
         self.ajustar_frame(self.vista_destinoCulinario)
         self.ajustar_frame(self.vista_info_destinos)
         self.ajustar_frame(self.vista_mapa)
         self.ajustar_frame(self.vista_calificacion)
+        self.ajustar_frame(self.vista_review)
 
     def ajustar_frame(self, frame):
         frame.grid(row=0, column=0, sticky="nsew")

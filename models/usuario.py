@@ -8,18 +8,16 @@ class Usuario:
         self.apellido = apellido
         self.historial_rutas = historial_rutas
 
-    @classmethod
-    def cargar_de_json(cls, archivo):
-        with open(archivo, "r") as f:
-            data = json.load(f)
-        return [cls(**usuario) for usuario in data]
-
-'''
-    def to_json(self):
-        return{"id": self.id, "nombre": self.nombre, "apellido": self.apellido, "historial_rutas": self.historial_rutas}
+    def a_json(self):
+        return json.dumps(self.__dict__)
 
     @classmethod
-    def from_json(cls, json_data):
-        data = json.loads(json_data)
-        return cls(data["id"], data["nombre"], data["apellido"], data["historial_rutas"])
-'''
+    def de_json(cls, datos_json):
+        datos = json.loads(datos_json)
+        return cls(**datos)
+
+    @staticmethod
+    def cargar_de_json(archivo_json):
+        with open(archivo_json, "r") as archivo:
+            datos = json.load(archivo)
+        return [Usuario.de_json(json.dumps(dato)) for dato in datos]
