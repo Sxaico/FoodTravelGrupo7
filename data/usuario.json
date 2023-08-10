@@ -1,11 +1,14 @@
 [
 {
     "id": 1,
-
     "nombre": "Nahuel",
-
     "apellido": "Guzman",
-
+    "historial_rutas": "[0]"
+},
+{
+    "id": 2,
+    "nombre": "Sofia",
+    "apellido": "Grigoras",
     "historial_rutas": "[0]"
 }
 ]

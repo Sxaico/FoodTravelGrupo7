@@ -1,4 +1,5 @@
 from models.review import Review
+from models.usuario import Usuario
 
 
 class ControladorReview:
@@ -14,3 +15,7 @@ class ControladorReview:
     def obtener_reviews(self):
         self.reviews = Review.cargar_de_json('data/review.json')
         return self.reviews
+
+    def obtener_usuarios(self):
+        self.usuario = Usuario.cargar_de_json('data/usuario.json')
+        return self.usuario

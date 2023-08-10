@@ -22,7 +22,6 @@ class ControladorCalificacion:
                     ids_reviews.append(review)
                     review_seleccionada = review
                     #self.app.vista_review.mostrar_reviews(review_seleccionada)
-                    print(f'ids_reviews: {ids_reviews}')
                     #break
             self.app.vista_review.mostrar_reviews(ids_reviews)
             #review = review_seleccionada[review_seleccionada.id]
@@ -35,7 +34,6 @@ class ControladorCalificacion:
 
     def seleccionar_destino(self):
         indice = self.app.vista_calificacion.obtener_indice_destinos()
-        print(f'indice: {indice}')
         if indice is not None:
             destino = self.destinos[indice]
             self.app.vista_info_destinos.mostrar_info_destino_culinario(destino)

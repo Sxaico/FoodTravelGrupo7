@@ -30,5 +30,13 @@
         "calificacion": 10,
         "comentario": "Muy alsdjas 4",
         "animo": "Positivo"
+    },
+    {
+        "id": 1,
+        "id_destino": 1,
+        "id_usuario": 1,
+        "calificacion": 10,
+        "comentario": "Muy bueno",
+        "animo": "Positivo"
     }
 ]

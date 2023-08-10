@@ -8,9 +8,9 @@ class VistaCalificacion(tk.Frame):
         self.controlador = controlador
 
         # Frames
-        self.frame_destinos = tk.Frame(self, width=300, height=500)
+        self.frame_destinos = tk.Frame(self, width=300, height=300)
         self.frame_destinos.grid(row=0, column=0)
-        self.frame_detalle = tk.Frame(self, width=300, height=500)
+        self.frame_detalle = tk.Frame(self, width=300, height=300)
         self.frame_detalle.grid(row=0, column=1)
 
         self.texto = tk.Label(self.frame_destinos, text='hola esto esta en el frame_destinos')
@@ -21,10 +21,10 @@ class VistaCalificacion(tk.Frame):
         self.calificacion = tk.Label(self.frame_detalle, text='')
         self.calificacion.grid()
 
-        self.lista_destinos = tk.Listbox(self.frame_destinos, height=10, width=15, bg='grey',activestyle='dotbox',fg='yellow')
+        self.lista_destinos = tk.Listbox(self.frame_destinos, width=15, height=10,activestyle='dotbox')
         self.actualizar_destinos()
-        self.lista_destinos.grid()
-        self.lista_destinos.bind('<1>', self.seleccionar_destino2)
+        self.lista_destinos.grid(pady=50)
+        self.lista_destinos.bind('<<ListboxSelect>>', self.seleccionar_destino2)
 
         # Regresar
         self.volver_inicio = tk.Button(self.frame_destinos, text='Volver al inicio', command=self.controlador.regresar_inicio)
