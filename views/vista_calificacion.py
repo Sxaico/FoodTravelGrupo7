@@ -24,7 +24,6 @@ class VistaCalificacion(tk.Frame):
         self.lista_destinos = tk.Listbox(self.frame_destinos, height=10, width=15, bg='grey',activestyle='dotbox',fg='yellow')
         self.actualizar_destinos()
         self.lista_destinos.grid()
-        self.lista_destinos.bind('<Double-Button-1>', self.seleccionar_destino)
         self.lista_destinos.bind('<1>', self.seleccionar_destino2)
 
         # Regresar

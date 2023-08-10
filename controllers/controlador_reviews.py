@@ -10,3 +10,7 @@ class ControladorReview:
 
     def agregar_review(self, review):
         Review.agregar_review('data/review.json', review)
+
+    def obtener_reviews(self):
+        self.reviews = Review.cargar_de_json('data/review.json')
+        return self.reviews

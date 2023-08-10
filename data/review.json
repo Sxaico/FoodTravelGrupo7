@@ -1,34 +1,34 @@
 [
     {
         "id": 1,
-        "id_destino": 1,
+        "id_destino": 3,
         "id_usuario": 1,
         "calificacion": 10,
         "comentario": "Muy bueno",
         "animo": "Positivo"
     },
     {
-        "id": 1,
-        "id_destino": 1,
+        "id": 2,
+        "id_destino": 2,
+        "id_usuario": 2,
+        "calificacion": 10,
+        "comentario": "Muy malo",
+        "animo": "Negativo"
+    },
+    {
+        "id": 3,
+        "id_destino": 2,
         "id_usuario": 1,
         "calificacion": 10,
-        "comentario": "Muy bueno",
+        "comentario": "Muy aslkdajsd 3",
         "animo": "Positivo"
     },
     {
-        "id": 1,
+        "id": 4,
         "id_destino": 1,
         "id_usuario": 1,
         "calificacion": 10,
-        "comentario": "Muy bueno",
-        "animo": "Positivo"
-    },
-    {
-        "id": 1,
-        "id_destino": 1,
-        "id_usuario": 1,
-        "calificacion": 10,
-        "comentario": "Muy bueno",
+        "comentario": "Muy alsdjas 4",
         "animo": "Positivo"
     }
 ]

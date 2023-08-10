@@ -11,11 +11,23 @@ class ControladorCalificacion:
         self.app.cambiar_frame(self.app.vista_inicio)
 
     def ir_reviews(self):
+        ids_reviews = []
         indice = self.app.vista_calificacion.obtener_indice_destinos()
         if indice is not None:
-            review = self.review[indice]
-            self.app.vista_review.mostrar_reviews(review)
+            destino_seleccionado = self.destinos[indice]
+            review_seleccionada = Review(0,0,0,0,'','')
+
+            for review in self.review:
+                if review.id_destino == destino_seleccionado.id:
+                    ids_reviews.append(review.id)
+                    review_seleccionada = review
+                    self.app.vista_review.mostrar_reviews(review_seleccionada)
+                    print(f'ids_reviews: {ids_reviews}')
+                    #break
+            #self.app.vista_review.mostrar_reviews(ids_reviews)
+            #review = review_seleccionada[review_seleccionada.id]
             self.app.cambiar_frame(self.app.vista_review)
+
 
     def obtener_destinos(self):
         self.destinos = DestinoCulinario.cargar_de_json('data/destinos_culinarios.json')
