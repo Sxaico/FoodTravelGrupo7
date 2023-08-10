@@ -1,63 +1,82 @@
-# Program to make a simple
-# login screen
-
-
 import tkinter as tk
 
-root=tk.Tk()
 
-# setting the windows size
-root.geometry("600x400")
-
-# declaring string variable
-# for storing name and password
-name_var=tk.StringVar()
-passw_var=tk.StringVar()
+root = tk.Tk()
+root.title('Prueba de search')
+root.geometry('500x300')
 
 
-# defining a function that will
-# get the name and password and
-# print them on the screen
-def submit():
+def update(data):
+    my_list.delete(0, tk.END)
+    
+    #Agregando a la lista
+    for item in data:
+        my_list.insert(tk.END, item)
 
-	name=name_var.get()
-	password=passw_var.get()
-	
-	print("The name is : " + name)
-	print("The password is : " + password)
-	
-	name_var.set("")
-	passw_var.set("")
-	
-	
-# creating a label for
-# name using widget Label
-name_label = tk.Label(root, text = 'Username', font=('calibre',10, 'bold'))
+def fillout(e):
+    # Limpiamos el listbox
+    my_entry.delete(0, tk.END)
+    my_entry.insert(0, my_list.get(my_list.curselection()))
 
-# creating a entry for input
-# name using widget Entry
-name_entry = tk.Entry(root,textvariable = name_var, font=('calibre',10,'normal'))
+def check(e):
+    # agarrar todo lo que esta escrito
+    typed = my_entry.get()
 
-# creating a label for password
-passw_label = tk.Label(root, text = 'Password', font = ('calibre',10,'bold'))
+    if typed == '':
+        data = toppings
+    else:
+        data = []
+        for item in toppings:
+            if typed.lower() in item.lower():
+                data.append(item)
+    update(data)
 
-# creating a entry for password
-passw_entry=tk.Entry(root, textvariable = passw_var, font = ('calibre',10,'normal'), show = '*')
+def subir():
+    rbtn = var.get()
+    print(rbtn)
 
-# creating a button using the widget
-# Button that will call the submit function
-sub_btn=tk.Button(root,text = 'Submit', command = submit)
+my_label = tk.Label(root, text='Empieza a escribir', font=('Helvetica',20))
+my_label.pack(pady=20)
 
-# placing the label and entry in
-# the required position using grid
-# method
-name_label.grid(row=0,column=0)
-name_entry.grid(row=0,column=1)
-passw_label.grid(row=1,column=0)
-passw_entry.grid(row=1,column=1)
-sub_btn.grid(row=2,column=1)
+my_entry = tk.Entry(root, font=('Helvetica', 20))
+my_entry.pack(pady=30)
 
-# performing an infinite loop
-# for the window to display
+my_list = tk.Listbox(root, width=50)
+my_list.pack(pady=30)
+
+toppings = ['Pepperoni', 'Tomate', 'Cheese', 'Mayonesa', 'Ketchup', 'Cebollas']
+
+update(toppings)
+
+my_list.bind('<<ListboxSelect>>', fillout)
+
+my_entry.bind('<KeyRelease>', check)
+
+
+# RadioButton
+
+# Defino VarString donde se almacenan los str 
+var = tk.StringVar(root, '1')
+
+values = {'★☆☆☆☆' : '1',
+          '★★☆☆☆' : '2',
+          '★★★☆☆' : '3',
+          '★★★★☆' : '4',
+          '★★★★★' : '5'}
+
+# loop para crear los botones
+
+for text, value in values.items():
+    tk.Radiobutton(root, text= text, variable=var,
+                   value= value, indicatoron=0,
+                   background='light blue', width=10).pack()
+
+btn = tk.Button(root, text='Subir', command=subir)
+btn.pack()
+
+
+
+
 root.mainloop()
+
 

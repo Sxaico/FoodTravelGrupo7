@@ -23,8 +23,7 @@ class ControladorCalificacion:
                     review_seleccionada = review
                     #self.app.vista_review.mostrar_reviews(review_seleccionada)
                     #break
-            self.app.vista_review.mostrar_reviews(ids_reviews)
-            #review = review_seleccionada[review_seleccionada.id]
+            self.app.vista_review.mostrar_reviews(ids_reviews, destino_seleccionado)
             self.app.cambiar_frame(self.app.vista_review)
 
 

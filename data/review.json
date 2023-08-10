@@ -38,5 +38,13 @@
         "calificacion": 10,
         "comentario": "Muy bueno",
         "animo": "Positivo"
+    },
+    {
+        "id": 1,
+        "id_destino": 2,
+        "id_usuario": 1,
+        "calificacion": "4",
+        "comentario": "Hola esta es mi review",
+        "animo": "Negativo"
     }
 ]

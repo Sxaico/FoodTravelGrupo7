@@ -27,48 +27,103 @@ class VistaReview(tk.Frame):
         self.detalle_reviews = tk.Label(self.frame_reviews, text='')
         self.detalle_reviews.grid()
 
+        # Boton volver a calificaciones
         self.regresar_calificaciones = tk.Button(self.frame_reviews, text='Regresar', command=self.controlador.regresar_atras)
         self.regresar_calificaciones.grid()
+
         # agregar review
         self.usuario = tk.Label(self.frame_agregar, text='Usuario: ')
-        self.usuario.grid(row=0, column=0, pady=30)
-        self.reviewtext = tk.Label(self.frame_agregar, text='Review: ')
-        self.reviewtext.grid(row=1, column=0, pady=30)
-        self.n = tk.StringVar()
-        self.cb_usuario = ttk.Combobox(self.frame_agregar, width=27, textvariable=self.n)
+        self.usuario.grid(row=0, column=0, pady=3)
+        self.comentariotext = tk.Label(self.frame_agregar, text='Review: ')
+        self.comentariotext.grid(row=2, column=0, pady=3)
+        self.animotxt = tk.Label(self.frame_agregar, text='Animo: ')
+        self.animotxt.grid(row=1, column=0, pady=3)
+
+        # StringVar para los campos de la review 
+        self.usrstr = tk.StringVar()
+        self.comentario_var = tk.StringVar()
+        self.calificacionstr = tk.StringVar()
+        self.animostr = tk.StringVar()
+
+        # Combobox Usuario
+        self.cb_usuario = ttk.Combobox(self.frame_agregar, width=27, textvariable=self.usrstr)
         self.cb_usuario.config(
                 width=27,
                 state='readonly',
-                textvariable=self.n,
+                textvariable=self.usrstr,
                 values = self.actualizar_usuario()
                 )
-        self.cb_usuario.grid(row=0, column=1, pady=30)
+        self.cb_usuario.grid(row=0, column=1, pady=5)
 
-        self.review_var = tk.StringVar()
-        self.review_entry = tk.Entry(self.frame_agregar, textvariable= self.review_var, font=('calibre',10,'normal'))
-        self.review_entry.grid(row=1, column= 1, pady=30)
-        self.subir = tk.Button(self.frame_agregar, text='Subir', command= self.subir)
-        #self.agregar_review = tk.Button(self.frame_agregar, text='Agregar Review',command= self.controlador.agregar_review(review))
-        self.subir.grid(row=3, column=2, pady=30)
+        # Combobox animo
+        self.cb_animo = ttk.Combobox(self.frame_agregar, width=27, textvariable=self.animostr)
+        self.cb_animo.config(
+                width=27,
+                state='readonly',
+                textvariable=self.animostr,
+                values = ['Positivo', 'Negativo']
+                )
+        self.cb_animo.grid(row=1, column=1, pady=5)
 
-    def imprimir(self,a):
+        # comentario
+        self.comentario_entry = tk.Entry(self.frame_agregar, textvariable= self.comentario_var, font=('calibre',10,'normal'))
+        self.comentario_entry.grid(row=2, column= 1, pady=3)
+
+        # Estrellas para calificacion
+        values = {'★☆☆☆☆': '1',
+                  '★★☆☆☆': '2',
+                  '★★★☆☆': '3',
+                  '★★★★☆': '4',
+                  '★★★★★': '5'}
+
+        # loop para crear los botones
+        for text, value in values.items():
+            tk.Radiobutton(self.frame_agregar,
+                           text=text, variable=self.calificacionstr,
+                           value=value, indicatoron=0,
+                           background='light blue', width=10).grid(row=value, column=2)
+
+        #Boton para subir comentario
+        self.subir = tk.Button(self.frame_agregar, text='Subir', command=self.armar_review)
+        self.subir.grid(row=1, column=3, pady=3)
+
+        #self.res = tk.messagebox.askyesno(segu
+
+    def subir(self, respuesta):
         print(f'{a}')
 
-    def subir(self):
-        usr = self.n.get()
-        review = self.review_var.get()
-        print(f'review: {review}, usr: {usr}')
-        self.review_var.set('')
-        self.n.set('')
+    def armar_review(self):
+        usr = self.usrstr.get()
+        comentario = self.comentario_var.get()
+        calificacion = self.calificacionstr.get()
+        animo = self.animostr.get()
+        destino_nombre = self.destino.nombre
+        destino_id = self.destino.id
+        usuario_id = 0
+        #usuarios = self.controlador.obtener_usuarios()
+        for usuario in self.usuarios:
+            if usr == usuario.nombre:
+                usuario_id = usuario.id
+        print(f'comentario: {type(comentario)}, usr: {usr}{type(usuario_id)}, cal: {type(calificacion)}, Animo: {type(animo)}, destino: {destino_nombre}, Destino id: {destino_id}')
+        
+        nueva_review = Review(1,destino_id,usuario_id, calificacion, comentario, animo)
+        res = tk.messagebox.askyesno('Confirmar Review','Está seguro de que quiere subir esta review?')
+
+        print(res)
+        if res is True:
+            Review.agregar_review('data/review.json', nueva_review)
+
+        self.comentario_var.set('')
+        self.usrstr.set('')
+        self.calificacionstr.set('')
+        self.animostr.set('')
 
     def actualizar_usuario(self):
         usuariostr = []
-        usuarios = self.controlador.obtener_usuarios()
-        for usuario in usuarios:
+        self.usuarios = self.controlador.obtener_usuarios()
+        for usuario in self.usuarios:
             usuariostr.append(usuario.nombre)
-            #print(f'Nombre: {usuario.nombre}')
         return usuariostr
-        #return [usuario.nombre[usuario] for usuario in usuarios]
 
     def actualizar_reviews(self):
         reviews = self.controlador.obtener_reviews()
@@ -77,9 +132,10 @@ class VistaReview(tk.Frame):
             self.lista_reviews.insert(tk.END, review.id)
 
         #self.controlador.agregar_review(review1)
-    def mostrar_reviews(self, reviews):
+    def mostrar_reviews(self, reviews, destino):
         info = []
+        self.destino = destino
         str = ''
         for review in reviews:
-            info += [f'Review {review.id}\n Comentario: {review.comentario}\n Calificacion: {review.calificacion}\n']
+            info += [f'Review {review.id}\n Comentario: {review.comentario}\n Calificacion: {review.calificacion}\n Destino: {self.destino.nombre}']
         self.detalle_reviews['text'] = str.join(info)
