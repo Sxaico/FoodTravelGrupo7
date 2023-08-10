@@ -47,3 +47,7 @@ class VistaInicio(tk.Frame):
         )
         self.boton_calificacion.grid(pady=10)
 
+        self.boton_calificacion = tk.Button(
+                self, text="Mostrar calificaciones", command=self.controlador.mostrar_calificacion
+        )
+        self.boton_calificacion.grid(pady=10)

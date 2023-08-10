@@ -19,6 +19,8 @@ from controllers.controlador_mapa import ControladorMapa
 from controllers.controlador_calificacion import ControladorCalificacion
 from views.vista_reviews import VistaReview
 from controllers.controlador_reviews import ControladorReview
+#from views.vistaInfo import VistaInfo
+#from controllers.controladorBusqAvanz import ControladorBusquedaAvanz
 
 
 class MyApp(tk.Tk):
@@ -39,6 +41,7 @@ class MyApp(tk.Tk):
         controlador_mapa = ControladorMapa(self)
         controlador_calificacion = ControladorCalificacion(self)
         controlador_reviews = ControladorReview(self)
+        #controladorBusquedaAvanz = ControladorBusquedaAvanz(self)
 
         self.vista_inicio = VistaInicio(self, controlador_inicio)
         self.vista_destinoCulinario = VistaDestinosCulinarios(self, controlador_destinoCulinario)
@@ -46,6 +49,7 @@ class MyApp(tk.Tk):
         self.vista_mapa = VistaPrincipalMapa(self, controlador_mapa)
         self.vista_calificacion = VistaCalificacion(self,controlador_calificacion)
         self.vista_review = VistaReview(self, controlador_reviews)
+        #self.vistaInfo = VistaInfo(self, controladorBusquedaAvanz)
 
         self.ajustar_frame(self.vista_inicio)
         self.ajustar_frame(self.vista_destinoCulinario)
@@ -53,6 +57,7 @@ class MyApp(tk.Tk):
         self.ajustar_frame(self.vista_mapa)
         self.ajustar_frame(self.vista_calificacion)
         self.ajustar_frame(self.vista_review)
+        #self.ajustar_frame(self.vistaInfo)
 
     def ajustar_frame(self, frame):
         frame.grid(row=0, column=0, sticky="nsew")

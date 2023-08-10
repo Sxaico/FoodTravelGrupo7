@@ -33,6 +33,13 @@ class VistaReview(tk.Frame):
             self.lista_reviews.insert(tk.END, review.id)
 
         #self.controlador.agregar_review(review1)
-    def mostrar_reviews(self, review):
-        info = f'Review {review.id}\n Comentario: {review.comentario}\n Calificacion: {review.calificacion}\n'
-        self.detalle_reviews['text'] = info
+    def mostrar_reviews(self, reviews):
+        infofinal = []
+        for review in reviews:
+            print(f'Id del review{review.id}')
+            info = f'Review {review.id}\n Comentario: {review.comentario}\n Calificacion: {review.calificacion}\n'
+            #print(f'review{review.id}')
+            infofinal = ' '.join([info])
+            #info.join(info)
+        print(info)
+        self.detalle_reviews['text'] = infofinal

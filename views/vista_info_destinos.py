@@ -10,14 +10,14 @@ class VistaInfo(tk.Frame):
         self.master = master
         self.controlador = controlador
         self.destino_label = tk.Label(self, text="")
-        self.destino_label.pack(pady=50)
+        self.destino_label.grid(pady=50)
         self.destino_label.config(justify=tk.LEFT)
         self.boton_regresar = tk.Button(
             self,
             text="Regresar a la lista de destinos",
             command=self.controlador.regresar_destinos_culinarios,
         )
-        self.boton_regresar.pack(pady=10)
+        self.boton_regresar.grid(pady=10)
 
     def mostrar_info_destino_culinario(self, destino):
         """

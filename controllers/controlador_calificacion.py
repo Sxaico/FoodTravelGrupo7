@@ -19,12 +19,12 @@ class ControladorCalificacion:
 
             for review in self.review:
                 if review.id_destino == destino_seleccionado.id:
-                    ids_reviews.append(review.id)
+                    ids_reviews.append(review)
                     review_seleccionada = review
-                    self.app.vista_review.mostrar_reviews(review_seleccionada)
+                    #self.app.vista_review.mostrar_reviews(review_seleccionada)
                     print(f'ids_reviews: {ids_reviews}')
                     #break
-            #self.app.vista_review.mostrar_reviews(ids_reviews)
+            self.app.vista_review.mostrar_reviews(ids_reviews)
             #review = review_seleccionada[review_seleccionada.id]
             self.app.cambiar_frame(self.app.vista_review)
 
