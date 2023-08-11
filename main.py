@@ -18,7 +18,9 @@ from controllers.controlador_info_destinos import ControladorInfo
 from controllers.controlador_calificacion import ControladorCalificacion
 from controllers.controlador_mapa import ControladorMapa
 from views.vista_reviews import VistaReview
+from views.vista_busqueda import VistaBusqueda
 from controllers.controlador_reviews import ControladorReview
+from controllers.controlador_busqueda import ControladorBusqueda
 #from views.vistaInfo import VistaInfo
 #from controllers.controladorBusqAvanz import ControladorBusquedaAvanz
 
@@ -27,7 +29,7 @@ class MyApp(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
         self.title('TravelFoodG7')
-        self.geometry('500x500')
+        self.geometry('600x500')
         self.resizable(False, False)
         self.inicializar()
         self.cambiar_frame(self.vista_inicio)
@@ -43,6 +45,7 @@ class MyApp(tk.Tk):
         controlador_calificacion = ControladorCalificacion(self)
         controlador_reviews = ControladorReview(self)
         #controladorBusquedaAvanz = ControladorBusquedaAvanz(self)
+        controlador_busqueda = ControladorBusqueda(self, destinos)
 
         self.vista_inicio = VistaInicio(self, controlador_inicio)
         self.vista_destinoCulinario = VistaDestinosCulinarios(self, controlador_destinoCulinario)
@@ -50,6 +53,7 @@ class MyApp(tk.Tk):
         self.vista_calificacion = VistaCalificacion(self, controlador_calificacion)
         self.vista_review = VistaReview(self, controlador_reviews)
         self.vista_mapa = VistaMapa(self, controlador_mapa, controlador_mapa.seleccionar_ubicacion)
+        self.vista_busqueda = VistaBusqueda(self, controlador_busqueda)
 
 
         self.ajustar_frame(self.vista_inicio)
@@ -58,6 +62,7 @@ class MyApp(tk.Tk):
         self.ajustar_frame(self.vista_calificacion)
         self.ajustar_frame(self.vista_review)
         self.ajustar_frame(self.vista_mapa)
+        self.ajustar_frame(self.vista_busqueda)
 
     def ajustar_frame(self, frame):
         frame.grid(row=0, column=0, sticky="nsew")

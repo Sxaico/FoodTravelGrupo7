@@ -54,5 +54,13 @@
         "calificacion": "3",
         "comentario": "alksjda;skldjas;kdlj",
         "animo": "Positivo"
+    },
+    {
+        "id": 8,
+        "id_destino": 2,
+        "id_usuario": 2,
+        "calificacion": "5",
+        "comentario": "Me gusto este lugar",
+        "animo": "Negativo"
     }
 ]

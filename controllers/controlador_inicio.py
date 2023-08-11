@@ -10,3 +10,6 @@ class ControladorInicio:
 
     def mostrar_calificacion(self):
         self.app.cambiar_frame(self.app.vista_calificacion)
+
+    def mostrar_busqueda(self):
+        self.app.cambiar_frame(self.app.vista_busqueda)
