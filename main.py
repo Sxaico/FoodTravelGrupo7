@@ -10,13 +10,13 @@ from models.ubicacion import Ubicacion
 from views.vista_inicio import VistaInicio
 from views.vista_destinoCulinario import VistaDestinosCulinarios
 from views.vista_info_destinos import VistaInfo
-from views.vista_mapa import VistaPrincipalMapa
 from views.vista_calificacion import VistaCalificacion
+from views.vista_mapa import VistaMapa
 from controllers.controlador_inicio import ControladorInicio
 from controllers.controlador_destinoCulinario import ControladorDestinoCulinario
 from controllers.controlador_info_destinos import ControladorInfo
-from controllers.controlador_mapa import ControladorMapa
 from controllers.controlador_calificacion import ControladorCalificacion
+from controllers.controlador_mapa import ControladorMapa
 from views.vista_reviews import VistaReview
 from controllers.controlador_reviews import ControladorReview
 #from views.vistaInfo import VistaInfo
@@ -32,13 +32,14 @@ class MyApp(tk.Tk):
         self.inicializar()
         self.cambiar_frame(self.vista_inicio)
 
+
     def inicializar(self):
         destinos = DestinoCulinario.cargar_de_json('data/destinos_culinarios.json')
 
         controlador_inicio = ControladorInicio(self)
         controlador_destinoCulinario = ControladorDestinoCulinario(self, destinos)
         controlador_info_destinos = ControladorInfo(self)
-        controlador_mapa = ControladorMapa(self)
+        controlador_mapa = ControladorMapa(self, destinos)
         controlador_calificacion = ControladorCalificacion(self)
         controlador_reviews = ControladorReview(self)
         #controladorBusquedaAvanz = ControladorBusquedaAvanz(self)
@@ -46,18 +47,17 @@ class MyApp(tk.Tk):
         self.vista_inicio = VistaInicio(self, controlador_inicio)
         self.vista_destinoCulinario = VistaDestinosCulinarios(self, controlador_destinoCulinario)
         self.vista_info_destinos = VistaInfo(self, controlador_info_destinos)
-        self.vista_mapa = VistaPrincipalMapa(self, controlador_mapa)
-        self.vista_calificacion = VistaCalificacion(self,controlador_calificacion)
+        self.vista_calificacion = VistaCalificacion(self, controlador_calificacion)
         self.vista_review = VistaReview(self, controlador_reviews)
-        #self.vistaInfo = VistaInfo(self, controladorBusquedaAvanz)
+        self.vista_mapa = VistaMapa(self, controlador_mapa, controlador_mapa.seleccionar_ubicacion)
+
 
         self.ajustar_frame(self.vista_inicio)
         self.ajustar_frame(self.vista_destinoCulinario)
         self.ajustar_frame(self.vista_info_destinos)
-        self.ajustar_frame(self.vista_mapa)
         self.ajustar_frame(self.vista_calificacion)
         self.ajustar_frame(self.vista_review)
-        #self.ajustar_frame(self.vistaInfo)
+        self.ajustar_frame(self.vista_mapa)
 
     def ajustar_frame(self, frame):
         frame.grid(row=0, column=0, sticky="nsew")

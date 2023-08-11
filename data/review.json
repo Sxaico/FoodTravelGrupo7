@@ -32,7 +32,7 @@
         "animo": "Positivo"
     },
     {
-        "id": 1,
+        "id": 5,
         "id_destino": 1,
         "id_usuario": 1,
         "calificacion": 10,
@@ -40,11 +40,19 @@
         "animo": "Positivo"
     },
     {
-        "id": 1,
+        "id": 6,
         "id_destino": 2,
         "id_usuario": 1,
         "calificacion": "4",
         "comentario": "Hola esta es mi review",
         "animo": "Negativo"
+    },
+    {
+        "id": 7,
+        "id_destino": 4,
+        "id_usuario": 1,
+        "calificacion": "3",
+        "comentario": "alksjda;skldjas;kdlj",
+        "animo": "Positivo"
     }
 ]

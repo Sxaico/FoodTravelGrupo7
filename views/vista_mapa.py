@@ -1,55 +1,48 @@
 import tkinter as tk
-from tkinter import ttk
 from tkintermapview import TkinterMapView
-from PIL import Image, ImageTk
 
-
-class VistaPrincipalMapa(tk.Frame):
-    def __init__(self, app=None, controlador=None, seleccionar_destino_callback=None, seleccionar_ubicacion_callback=None):
+class VistaMapa(tk.Frame):
+    def __init__(self, app=None, controlador=None, seleccionar_ubicacion_callback=None):
         super().__init__(app)
         self.app = app
         self.controlador = controlador
-        self.seleccionar_destino_callback = seleccionar_destino_callback
         self.seleccionar_ubicacion_callback = seleccionar_ubicacion_callback
 
-        # Frame para mapa
-        self.frame_mapa = tk.Frame(self, width=800, height=600)
-        self.frame_mapa.grid(row=0,column=1, pady=10)
+        # Frames
+        self.lbl = tk.LabelFrame(self)
+        self.lbl.grid(row=0, column=1)
+        self.lbl_destino = tk.LabelFrame(self, width=250, height=500)
+        self.lbl_destino.grid(row=0, column=0)
 
-        self.mapa = TkinterMapView(self.frame_mapa, width=800, height=600, corner_radius=0)
-        #self.mapa.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
-        self.mapa.set_position(-24.789116075505337, -65.41027317448516)
-        self.mapa.set_zoom(16)
-        self.mapa.grid(pady=10)
 
-        # Frame para listbox
-        self.frame_destinos = tk.Frame(self, height=600, width=600)
-        self.frame_destinos.grid(row=0, column=0, pady=10)
+        self.mapa = TkinterMapView(self.lbl, width=250, height=500, corner_radius=0)
+        self.mapa.set_position(-24.789155036592028, -65.410273174454870)
+        self.mapa.set_zoom = 16
+        self.mapa.grid()
 
-        # Listbox para las ubicaciones
-        self.lista_destinos = tk.Listbox(self.frame_destinos)
-        self.lista_destinos.config(width=30)
-        self.lista_destinos.bind('<<ListboxSelect>>', self.seleccionar_destino_callback)
-        self.lista_destinos.grid()
+        self.lista_destino = tk.Listbox(self.lbl_destino)
+        self.actualizar_destinos()
+        self.lista_destino.grid()
+        self.lista_destino.bind('<<ListboxSelect>>', self.seleccionar_destino)
 
-    def agregar_destino(self, destino):
-        print(f'{destino.nombre}')
-        self.nombre = destino.nombre
-        self.lista_destinos.insert(tk.END, destino.nombre)
+        self.btn_volver = tk.Button(self.lbl_destino, text='Volver al inicio', command=self.controlador.volver_inicio)
+        self.btn_volver.grid()
 
-    #def agregar_destino(self):
-    #    self.lista_destinos.delete(0, tk.END)
-    #    destino = self.controlador.obtener_destinos()
-    #    self.nombre = destino.nombre
-    #    for destino in destino:
-    #        self.lista_destinos.insert(tk.END, destino.nombre)
-
-    def agregar_marcador_mapa(self, latitud, longitud, texto, imagen=None):
-        return self.mapa.set_marker(latitud, longitud, text=texto, image=imagen, command=self.seleccionar_ubicacion_callback)
-
+    def actualizar_destinos(self):
+        destinos = self.controlador.obtener_destinos()
+        self.lista_destino.delete(0, tk.END)
+        for destino in destinos:
+            self.lista_destino.insert(tk.END, destino.nombre)
+    
     def obtener_indice(self):
-        indice = self.lista_destinos.curselection()
+        indice = self.lista_destino.curselection()
         if indice:
             return indice[0]
         else:
             return None
+    
+    def seleccionar_destino(self, event):
+        return self.controlador.seleccionar_destino()
+
+    def agregar_marcador_mapa(self, latitud, longitud, texto, imagen=None):
+        return self.mapa.set_marker(latitud, longitud, text=texto, image=imagen, command=self.seleccionar_ubicacion_callback)

@@ -11,18 +11,18 @@ class VistaReview(tk.Frame):
 
         # Frames
 
-        self.frame_reviewslista = tk.Frame(self, width=300, height=300)
-        self.frame_reviewslista.grid(row=0, column=0, pady=30)
-        self.frame_reviews = tk.Frame(self, width=300, height=300)
-        self.frame_reviews.grid(row=0, column=1, pady=30)
+        self.frame_reviewslista = tk.Frame(self, width=250, height=250)
+        self.frame_reviewslista.grid(row=0, column=0, pady=3)
+        self.frame_reviews = tk.Frame(self, width=250, height=250)
+        self.frame_reviews.grid(row=0, column=1, pady=3)
 
-        self.frame_agregar = tk.Frame(self, width=300, height=300)
-        self.frame_agregar.grid(row=1, pady=30)
+        self.frame_agregar = tk.Frame(self, width=500, height=250)
+        self.frame_agregar.grid(row=1, column= 0, pady=3)
         
         # Detalle de reviews
         self.lista_reviews = tk.Listbox(self.frame_reviewslista)
         self.actualizar_reviews()
-        self.lista_reviews.grid()
+        self.lista_reviews.grid(row=0, column=0)
 
         self.detalle_reviews = tk.Label(self.frame_reviews, text='')
         self.detalle_reviews.grid()
@@ -33,11 +33,11 @@ class VistaReview(tk.Frame):
 
         # agregar review
         self.usuario = tk.Label(self.frame_agregar, text='Usuario: ')
-        self.usuario.grid(row=0, column=0, pady=3)
+        self.usuario.grid(row=0, column=1, pady=3)
         self.comentariotext = tk.Label(self.frame_agregar, text='Review: ')
-        self.comentariotext.grid(row=2, column=0, pady=3)
+        self.comentariotext.grid(row=2, column=1, pady=3)
         self.animotxt = tk.Label(self.frame_agregar, text='Animo: ')
-        self.animotxt.grid(row=1, column=0, pady=3)
+        self.animotxt.grid(row=1, column=1, pady=3)
 
         # StringVar para los campos de la review 
         self.usrstr = tk.StringVar()

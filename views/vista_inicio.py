@@ -36,16 +36,11 @@ class VistaInicio(tk.Frame):
         )
         self.boton_destinos.grid(row=2, column=0, pady=10)
 
-        # Crea el botón para ir a destinos y lo agrega a la vista
+        #Crea el botón para ir a destinos y lo agrega a la vista
         self.boton_mapa = tk.Button(
-            self, text="Mostrar mapas", command=self.controlador.mostrar_mapa
+           self, text="Mostrar mapas", command=self.controlador.mostrar_mapa
         )
         self.boton_mapa.grid(pady=10)
-
-        self.boton_calificacion = tk.Button(
-                self, text="Mostrar calificaciones", command=self.controlador.mostrar_calificacion
-        )
-        self.boton_calificacion.grid(pady=10)
 
         self.boton_calificacion = tk.Button(
                 self, text="Mostrar calificaciones", command=self.controlador.mostrar_calificacion
